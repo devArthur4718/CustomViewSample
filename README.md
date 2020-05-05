@@ -89,12 +89,17 @@ private var radius = 0.0f                   // Radius of the circle.
 Finally, we need to add our custom view into your layout. Since we are painting its background on the class initialization, it does not need a background color tag in XML. 
 
 
-``` xml
-class DialView @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : View(context, attrs, defStyleAttr)
+```xml
+  <com.devarthur4718.customfan.DialView
+        android:id="@+id/dialView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@+id/customViewLabel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginTop="@dimen/default_margin"/>
 ```
 
 
