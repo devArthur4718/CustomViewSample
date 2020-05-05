@@ -91,7 +91,3 @@ private var radius = 0.0f                   // Radius of the circle.
 * Android Studio Version 3.6.1 
 * Gradle Version 5.6.4 
 
-# Project reference.
-
-https://developer.android.com/reference/android/app/job/JobScheduler 
-https://codelabs.developers.google.com/codelabs/android-training-job-scheduler/index.html#2
