@@ -39,13 +39,12 @@ class DialView @JvmOverloads constructor(
     init {
         isClickable = true
     }
+    //Initial view state.
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         style = Paint.Style.FILL
         textAlign = Paint.Align.CENTER
         textSize = 55.0f
         typeface = Typeface.create("", Typeface.BOLD)
-
-
     }
 
     //Called anytime view size changes.
@@ -53,6 +52,7 @@ class DialView @JvmOverloads constructor(
         radius = (min(width,height) / 2.0 * 0.8).toFloat()
     }
 
+    //Calculate a point using radius as origin
     private fun PointF.computeXYForSpeed(pos: FanSpeed, radius : Float){
         //Angles are in radians.
         val startAngle = Math.PI * ( 9 / 8.0)
@@ -64,11 +64,11 @@ class DialView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        //Draw the indicator circle.
+        //Draw the big circle
         paint.color = if(fanSpeed == FanSpeed.OFF) Color.GRAY else Color.GREEN
         canvas?.drawCircle((width / 2).toFloat(), (height / 2).toFloat(),radius, paint)
 
-
+        //Draw small position indicators.
         val markerRadius = radius + RADIUS_OFFSET_INDICATOR
         pointPosition.computeXYForSpeed(fanSpeed,markerRadius)
         paint.color = Color.BLACK
